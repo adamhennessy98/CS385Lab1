@@ -1,27 +1,17 @@
 import React, { Component } from "react";
-const alpha = 20;
-const beta = 100;
-const gamma = 1000;
-const x = "CS385";
-const y = "App Development";
+
+import {companies} from "./companies";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>
-          {alpha} + {beta} + {gamma} = {alpha + beta + gamma}
-        </p>
-        <p>
-          {alpha} + {beta} + {gamma} = {alpha * beta * gamma}
-        </p>
-        <p>
-          {alpha} + {beta} + {gamma} = {alpha * 10 + beta * 10 + gamma * 10}
-        </p>
-        <p>{x}</p>
-        <p>{y}</p>
-        <p>{x.toUpperCase()}</p>
-        <p>{y.toLocaleLowerCase()}</p>
+        {companies.filter(employees(400)).map((c) => (
+          <div key = {c.cid}>
+            <b>CID:</b> {c.cid} <b>Company:</b> {c.company} <b>Employees:</b> {c.employees} <b>Materials:</b> {c.material};  
+            </div>
+        ))}
+        
       </div>
     );
   }
